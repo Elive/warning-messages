@@ -72,3 +72,4 @@ case $id in
         message_suspend "$@"
         ;;
 esac
+
