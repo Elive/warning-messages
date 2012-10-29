@@ -4,41 +4,43 @@ WARN_DIR="$HOME/.elive/warning_messages"
 cancel_ok_message="\n\n"$"Click Cancel if you don't want to receive this alert again"
 guitool=zenity
 
-if [[ -z $1 ]] ; then
-   #echo -e "Usage: $(basename $0) message-type number-times-to-appear"
-   echo -e "Usage: $(basename $0) message-type"
-   exit 1
+if [[ -z "$1" ]] ; then
+    #echo -e "Usage: $(basename $0) message-type number-times-to-appear"
+    echo -e "Usage: $(basename $0) message-type"
+    exit 1
 fi
 
-[[ ! -d "$WARN_DIR" ]] && mkdir -p "$WARN_DIR"
+if ! [[ -d "$WARN_DIR" ]] ; then
+    mkdir -p "$WARN_DIR"
+fi
 
 
 #-------------------------------------------------------------------------------
 #   Check control: show the message only if we need to show it
 #-------------------------------------------------------------------------------
 check_control(){
-   # return true only if want need to show this message
-   if [[ -f "${WARN_DIR}/${id}" ]] ; then
-      return 1
-   else
-      return 0
-   fi
+    # return true only if want need to show this message
+    if [[ -f "${WARN_DIR}/${id}" ]] ; then
+        return 1
+    else
+        return 0
+    fi
 }
 
 #-------------------------------------------------------------------------------
 #   Add control: if the user has press Cancel: create the file
 #-------------------------------------------------------------------------------
 add_control(){
-   # file is created, the popup should not appear anymore
-   touch "${WARN_DIR}/${id}"
+    # file is created, the popup should not appear anymore
+    touch "${WARN_DIR}/${id}"
 }
 
 #-------------------------------------------------------------------------------
 #   Send message: send message and manage control
 #-------------------------------------------------------------------------------
 send_message(){
-   # send message ($1 input), add the footer, and if the user click in Cancel then we dont show it anymore
-   $guitool --question --text="$1""${cancel_ok_message}" || add_control "$id"
+    # send message ($1 input), add the footer, and if the user click in Cancel then we dont show it anymore
+    $guitool --question --text="$1""${cancel_ok_message}" || add_control "$id"
 }
 
 
@@ -46,16 +48,16 @@ send_message(){
 #   Message: Ecomorph
 #-------------------------------------------------------------------------------
 message_ecomorph(){
-   check_control "$id" || return
-   send_message $"Warning: If you use this feature you can have different types of problems like lost windows or bad positioning of windows, more instability in your desktop environment, windows that may disappear, windows that you can't click on, slow videos, etc. This feature is experimental and not finished. You are warned about what can happen and now you are welcome to use it." "$id"
+    check_control "$id" || return
+    send_message $"Warning: If you use this feature you can have different types of problems like lost windows or bad positioning of windows, more instability in your desktop environment, windows that may disappear, windows that you can't click on, slow videos, etc. This feature is experimental and not finished. You are warned about what can happen and now you are welcome to use it." "$id"
 }
 
 #-------------------------------------------------------------------------------
 #   Message: Suspend
 #-------------------------------------------------------------------------------
 message_suspend(){
-   check_control "$id" || return
-   send_message $"Warning: Suspend and hibernate features may give you problems like unresponsive hardware, specially when you are restoring, after which a reboot is required. Use these features with precaution! If your hardware doesn't correctly support the suspend feature, just do not use it." "$id"
+    check_control "$id" || return
+    send_message $"Warning: Suspend and hibernate features may give you problems like unresponsive hardware, specially when you are restoring, after which a reboot is required. Use these features with precaution! If your hardware doesn't correctly support the suspend feature, just do not use it." "$id"
 }
 
 
@@ -63,10 +65,10 @@ message_suspend(){
 id="$1"
 
 case $id in
-compiz|ecomorph)
-   message_ecomorph "$@"
-   ;;
-hibernate|suspend|hebernate)
-   message_suspend "$@"
-   ;;
+    compiz|ecomorph)
+        message_ecomorph "$@"
+        ;;
+    hibernate|suspend|hebernate)
+        message_suspend "$@"
+        ;;
 esac
