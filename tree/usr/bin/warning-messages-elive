@@ -1,5 +1,9 @@
 #!/bin/bash
+source /usr/lib/elive-tools/functions
+#el_make_environment
 TEXTDOMAIN="warning-messages"
+export TEXTDOMAIN
+
 WARN_DIR="$HOME/.elive/warning_messages"
 cancel_ok_message="\n\n"$"Click Cancel if you don't want to receive this alert again"
 guitool=zenity
@@ -60,6 +64,11 @@ message_suspend(){
     send_message $"Warning: Suspend and hibernate features may give you problems like unresponsive hardware, specially when you are restoring, after which a reboot is required. Use these features with precaution! If your hardware doesn't correctly support the suspend feature, just do not use it." "$id"
 }
 
+message_compat_notinstalled(){
+    check_control "$id" || exit 0
+    send_message $"Note: Your system has tried to use the application $(basename $0), but we will use instead an alternative, this is not bad at all, it makes your system much more compatible and integrated, in fact you don't need the original application at all, this message is only because we think that it is important for you to know this in the case that you really wanted to use that application specifically." "$id"
+}
+
 
 
 id="$1"
@@ -70,6 +79,12 @@ case $id in
         ;;
     hibernate|suspend|hebernate)
         message_suspend "$@"
+        ;;
+    compat_notinstalled)
+        message_compat_notinstalled "$@"
+        ;;
+    *)
+        el_explain 2 "not found any message mode to use called '$@' for $(basename $0)"
         ;;
 esac
 
