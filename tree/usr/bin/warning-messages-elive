@@ -65,6 +65,9 @@ message_suspend(){
     send_message "$( eval_gettext "Warning: Suspend and hibernate features may give you problems like unresponsive hardware, specially when you are restoring, after which a reboot is required. Use these features with precaution! If your hardware doesn't correctly support the suspend feature, just do not use it." )" "$id"
 }
 
+#-------------------------------------------------------------------------------
+#   Message: Compatibility of package not installed
+#-------------------------------------------------------------------------------
 message_compat_notinstalled(){
     check_control "$id" || exit 0
 
@@ -73,9 +76,19 @@ message_compat_notinstalled(){
 
     send_message "$translated_message" "$id"
 }
+#-------------------------------------------------------------------------------
+#   Message: NTFS crappy
+#-------------------------------------------------------------------------------
+message_ntfs_is_crap(){
+    check_control "$id" || exit 0
+    send_message "$( eval_gettext "Warning: You are using a partition that is formated in the Microsoft NTFS filesystem, for a fast usage it should work without problems, but if you want to continue using it other days is important that it can be very unstable, it can totally block your computer or lose your data. The reason of these problems is because Microsoft changes the inner working of this filesystem without releasing any information so that other operating systems like linux or mac cannot use it correctly, this is because their system is not open source or because they use monopol practices. This message is basically to tell you that if you experience problems, is not our fault but the Microsoft one, so do not report bugs to us. Finally, as a suggestion, if you want to have a stable filesystem where to share data compatible with Microsoft systems, please use FAT32 instead, it is a filesystem that works perfectly stable and any common operating system supports it." )" "$id"
+}
 
 
 
+#-------------------------------------------------------------------------------
+#   MAIN
+#-------------------------------------------------------------------------------
 id="$1"
 shift
 
@@ -88,6 +101,9 @@ case $id in
         ;;
     compat_notinstalled)
         message_compat_notinstalled "$@"
+	;;
+    ntfs_is_crap)
+	message_ntfs_is_crap "$@"
         ;;
     *)
         el_explain 2 "not found any message mode to use called '$@' for $(basename $0)"
