@@ -4,6 +4,7 @@ source /usr/lib/elive-tools/functions
 . gettext.sh
 TEXTDOMAIN="warning-messages"
 export TEXTDOMAIN
+el_check_translations_required_notify
 
 WARN_DIR="$HOME/.elive/warning_messages"
 cancel_ok_message="\n\n""$( eval_gettext "Click in No if you don't want to receive this notification again" )"
