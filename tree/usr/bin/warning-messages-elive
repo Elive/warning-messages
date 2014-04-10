@@ -102,9 +102,9 @@ case $id in
         ;;
     compat_notinstalled)
         message_compat_notinstalled "$@"
-	;;
+        ;;
     ntfs_is_crap)
-	message_ntfs_is_crap "$@"
+        message_ntfs_is_crap "$@"
         ;;
     *)
         el_explain 2 "not found any message mode to use called '$@' for $(basename $0)"
