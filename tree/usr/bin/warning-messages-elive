@@ -89,7 +89,7 @@ message_ntfs_is_crap(){
 #-------------------------------------------------------------------------------
 message_supermariowar(){
     check_control "$id" || exit 0
-    send_message "$( eval_gettext "Unfortunately the original author of this really nice game (Florian Hufsky) doesn't live anymore, and so this beta version is not finished but works really well, if you are a programmer and want to revive this project you can search its existing community and source code in google. We hope you enjoy of this amazing game where you can also edit your own levels.\nImportant: In order to run this beta game, an admin password will be requested in order to add write permissions to the map files for the games group." )" "$id"
+    send_message "$( eval_gettext "Unfortunately the original author of this really nice game (Florian Hufsky) doesn't live anymore, and so this beta version is not finished but works really well, if you are a programmer and want to revive this project you can search its existing community and source code in google. We hope you enjoy of this amazing game where you can also edit your own levels. Important: In order to run this beta game, an admin password will be requested in order to add write permissions to the map files for the games group." )" "$id"
 }
 
 #-------------------------------------------------------------------------------
