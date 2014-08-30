@@ -6,7 +6,7 @@ TEXTDOMAIN="warning-messages"
 export TEXTDOMAIN
 el_check_translations_required_notify
 
-WARN_DIR="$HOME/.elive/warning_messages"
+WARN_DIR="$HOME/.cache/warning_messages"
 cancel_ok_message="\n\n""$( eval_gettext "Click in No if you don't want to receive this notification again" )"
 guitool=zenity
 
@@ -26,7 +26,7 @@ fi
 #-------------------------------------------------------------------------------
 check_control(){
     # return true only if want need to show this message
-    if [[ -f "${WARN_DIR}/${id}" ]] ; then
+    if [[ -f "${WARN_DIR}/${id}_${app}" ]] ; then
         return 1
     else
         return 0
@@ -38,7 +38,7 @@ check_control(){
 #-------------------------------------------------------------------------------
 add_control(){
     # file is created, the popup should not appear anymore
-    touch "${WARN_DIR}/${id}"
+    touch "${WARN_DIR}/${id}_${app}"
 }
 
 #-------------------------------------------------------------------------------
@@ -106,7 +106,9 @@ message_supermariowarpermissions(){
 id="$1"
 shift
 
-case $id in
+app="$( echo "$1" | sed -e 's|^.*/||g' -e 's|\ .*||g' )"
+
+case "$id" in
     compiz|ecomorph)
         message_ecomorph "$@"
         ;;
