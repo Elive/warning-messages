@@ -101,6 +101,14 @@ message_supermariowarpermissions(){
 }
 
 #-------------------------------------------------------------------------------
+#   Message: Tell that using persistence results in lagged and slow system
+#-------------------------------------------------------------------------------
+message_persistence_is_slow(){
+    check_control "$id" || exit 0
+    send_message "$( eval_gettext "Due to layered filesystems, using persistence makes your experience much slower than not using it, if your desktop and system feels slow boot the non-persistence mode or even better, install Elive in your hard disk to unleash the full responsiveness and features." )" "$id"
+}
+
+#-------------------------------------------------------------------------------
 #   MAIN
 #-------------------------------------------------------------------------------
 id="$1"
@@ -126,6 +134,9 @@ case "$id" in
         ;;
     supermariowarpermissions)
         message_supermariowarpermissions "$@"
+        ;;
+    persistence_is_slow)
+        message_persistence_is_slow "$@"
         ;;
     *)
         el_explain 2 "not found any message mode to use called '$@' for $(basename $0)"
