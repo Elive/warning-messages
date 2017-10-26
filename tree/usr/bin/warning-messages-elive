@@ -105,7 +105,7 @@ message_supermariowarpermissions(){
 #-------------------------------------------------------------------------------
 message_persistence_is_slow(){
     check_control "$id" || exit 0
-    send_message "$( eval_gettext "Due to layered file systems, using persistence makes your experience much slower, if you feel the system slow don't boot with persistence. But we better recommend to install Elive in your hard disk to unleash the full responsiveness and features." )" "$id"
+    send_message "$( eval_gettext "Due to layered file systems, using persistence makes your experience much slower, if you feel the system slow don't boot with persistence. We  recommend to install Elive on your hard disk to unleash the full responsiveness and features." )" "$id"
 }
 
 #-------------------------------------------------------------------------------
