@@ -55,7 +55,7 @@ send_message(){
 #-------------------------------------------------------------------------------
 message_ecomorph(){
     check_control "$id" || exit 0
-    send_message "$( eval_gettext "Warning: If you use this feature you can have different types of problems like lost windows or bad positioning of windows, more instability in your desktop environment, windows that may disappear, windows that you can't click on, slow videos, etc. This feature is experimental and not finished. You are warned about what can happen and now you are welcome to use it." )" "$id"
+    send_message "$( eval_gettext "Warning: If you use this feature you can have different types of problems like lost windows, bad positioning of windows, more instability in your desktop environment, windows that may disappear, windows that you can't click on, slow videos, etc. This feature is experimental and not finished. You are warned about what can happen and now you are welcome to use it." )" "$id"
 }
 
 #-------------------------------------------------------------------------------
@@ -63,7 +63,7 @@ message_ecomorph(){
 #-------------------------------------------------------------------------------
 message_suspend(){
     check_control "$id" || exit 0
-    send_message "$( eval_gettext "Warning: Suspend and hibernate features may give you problems like unresponsive hardware, specially when you are restoring, after which a reboot is required. Use these features with precaution! If your hardware doesn't correctly support the suspend feature, just do not use it." )" "$id"
+    send_message "$( eval_gettext "Warning: Suspend and hibernate features may give you problems like unresponsive hardware, especially when you are restoring, after which a reboot is required. Use these features with precaution! If your hardware doesn't correctly support the suspend feature, just do not use it." )" "$id"
 }
 
 #-------------------------------------------------------------------------------
@@ -82,7 +82,7 @@ message_compat_notinstalled(){
 #-------------------------------------------------------------------------------
 message_ntfs_is_crap(){
     check_control "$id" || exit 0
-    send_message "$( eval_gettext "Warning: You are using a partition that is formatted in the Microsoft NTFS file system, for a fast usage it can work without problems, but if you want to continue using it other days is important that you know that it can be very unstable, it could totally block your computer or lose your data. The reason of these problems is because Microsoft changes the inner working of this file system without releasing any information so that other operating systems like Linux or Mac cannot be able to use it, this is because their system is not open source or because they use monopoly practices. This message is basically for tell you that if you experience problems, is the fault of Microsoft and not us, so do not report bugs to us. Finally, as a suggestion, if you want to have a stable file system to share data between different systems, please use FAT32 instead, it is a file system that works perfectly stable and any common operating system supports it." )" "$id"
+    send_message "$( eval_gettext "Warning: You are using a partition that is formatted in the Microsoft NTFS file system, for a fast usage it can work without problems, but if you want to continue using it other days is important that you know that it can be very unstable, it could totally block your computer or lose your data. The reason of these problems is because Microsoft changes the inner working of this file system without releasing any information so that other operating systems like Linux or Mac cannot be able to use it, this is because their system is not open source or because they use monopoly practices. This means that if you experience problems, it's the fault of Microsoft and not us, so do not report bugs to us. Finally, as a suggestion, if you want to have a stable file system to share data between different systems, please use FAT32 instead, it is a file system that works perfectly stable and any common operating system supports it." )" "$id"
 }
 #-------------------------------------------------------------------------------
 #   Message: Super Mario War
@@ -105,7 +105,7 @@ message_supermariowarpermissions(){
 #-------------------------------------------------------------------------------
 message_persistence_is_slow(){
     check_control "$id" || exit 0
-    send_message "$( eval_gettext "Due to layered file systems writings, persistence requires a fast USB in order to not have a slow experience, if you want to enjoy this amazing feature correctly make sure that you use the fastest USB devices or, install Elive in the hard disk." )" "$id"
+    send_message "$( eval_gettext "Due to layered file systems writings, persistence requires a fast USB in order to not have a slow experience, if you want to enjoy this amazing feature please make sure that you use the fastest USB devices or install Elive on a hard disk." )" "$id"
 }
 
 #-------------------------------------------------------------------------------
