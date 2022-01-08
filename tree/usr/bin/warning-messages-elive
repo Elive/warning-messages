@@ -76,7 +76,7 @@ message_compat_notinstalled(){
     check_control "$id" || exit 0
 
     local translated_message
-    translated_message="$( printf "$( eval_gettext "Note: You tried to run the application <b>%s</b>, but we will use instead an alternative. This is not bad at all -- it makes your system much more compatible and integrated. In fact you don't need the original application at all, this message is only because we think that it is important for you to know this in case you really wanted to use the other application specifically." )" "$@" )"
+    translated_message="$( printf "$( eval_gettext "Note: You tried to run the application <b>%s</b>, but we will use instead an alternative. This is not bad at all -- it makes your system much more compatible and integrated. In fact you don't need the original application at all, this message is only because we think that it is important for you to know this in case you really wanted to use the other application specifically. (If you really want the program, you'll need to install it - this message is just a stub.)" )" "$@" )"
 
     send_message "$translated_message" "$id"
 }
