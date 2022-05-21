@@ -66,7 +66,7 @@ message_ecomorph(){
 #-------------------------------------------------------------------------------
 message_suspend(){
     check_control "$id" || exit 0
-    send_message "$( eval_gettext "Warning: Suspend and hibernate features may give you problems like unresponsive hardware. Use these features with caution! If your hardware doesn't support this feature, do not use it." )" "$id"
+    send_message "$( eval_gettext "Warning: Suspend and hibernate features may give you problems, like having blocked your computer. Use these features with caution! If your hardware doesn't support this feature, do not use it." )" "$id"
 }
 
 #-------------------------------------------------------------------------------
