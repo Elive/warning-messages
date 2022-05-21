@@ -66,7 +66,7 @@ message_ecomorph(){
 #-------------------------------------------------------------------------------
 message_suspend(){
     check_control "$id" || exit 0
-    send_message "$( eval_gettext "Warning: Suspend and hibernate features may give you problems like unresponsive hardware, especially if you have restored, after which a reboot is required. Use these features with caution! If your hardware doesn't support this feature, do not use it." )" "$id"
+    send_message "$( eval_gettext "Warning: Suspend and hibernate features may give you problems like unresponsive hardware. Use these features with caution! If your hardware doesn't support this feature, do not use it." )" "$id"
 }
 
 #-------------------------------------------------------------------------------
@@ -76,7 +76,7 @@ message_compat_notinstalled(){
     check_control "$id" || exit 0
 
     local translated_message
-    translated_message="$( printf "$( eval_gettext "Note: You tried to run the application <b>%s</b>, but we will use  an alternative one instead. This is not bad at all -- it makes your system more compatible and integrated. In fact you don't need the original application at all, this message is only because we think that it is important for you to know this, in case you really wanted to use the other application specifically. (If you really want the program, you'll need to install it - this message is just a stub.)" )" "$@" )"
+    translated_message="$( printf "$( eval_gettext "Note: You tried to run the application <b>%s</b>, but we will use an alternative one instead. This is not a bad thing, it makes your system more compatible and integrated. In fact, you don't need the original application at all, this message is only because we think that it is important for you to know this, in case you really wanted to use the other application specifically, you'll need to install it." )" "$@" )"
 
     send_message "$translated_message" "$id"
 }
@@ -85,7 +85,7 @@ message_compat_notinstalled(){
 #-------------------------------------------------------------------------------
 message_ntfs_is_crap(){
     check_control "$id" || exit 0
-    send_message "$( eval_gettext "Warning: You are using a partition that is formatted with the Microsoft NTFS file system. For a small usage it can work without problems, but if you want to continue using it for more important things you must know that it can be very unstable. It could totally freeze your computer or lose your data. The reason of these problems is because Microsoft makes it difficult to be used by other operating systems like Linux or Mac in order to keep its monopolistic practices. This means that if you experience problems, Microsoft is at fault, not us, so do not report any issues related to this. Finally, as an advise: If you want to have a stable file system to share data between other systems, we recommend using exFAT, it's stable and standard and works on any other operating system including Windows." )" "$id"
+    send_message "$( eval_gettext "Warning: You are using a partition that is formatted with the Microsoft NTFS file system. For a small use, it can work without problems, but if you want to continue using it for more important things you must know that it can be very unstable. It could totally freeze your computer or lose data. The reason for these problems is that Microsoft makes it difficult to be used with other operating systems like Linux or Mac in order to keep its monopolistic practices. This means that if you experience problems, Microsoft is at fault, not us, so do not report any issues related to this. Finally, as advice: If you want to have a stable file system to share data between different operating systems, we recommend using exFAT, it's stable and standard and works on any other operating system including Mac or the problematic Windows." )" "$id"
 }
 #-------------------------------------------------------------------------------
 #   Message: Super Mario War
