@@ -90,11 +90,11 @@ message_ntfs_is_crap(){
 #-------------------------------------------------------------------------------
 #   Message: Super Mario War
 #-------------------------------------------------------------------------------
-message_supermariowar(){
-    check_control "$id" || exit 0
-    send_message "$( eval_gettext "Unfortunately the original author of this awesome game (Florian Hufsky) is not with us anymore, so this beta version is not finished but at least works pretty well. If you are a programmer, and you want to revive this project, you can find it in our GitHub, and you can find some patches and bugfixes for it in their original community. We hope you enjoy this amazing game." )" "$id"
-    # Important: In order to run this beta game, an admin password will be requested in order to add write permissions to the map files for the games group.
-}
+#message_supermariowar(){
+    #check_control "$id" || exit 0
+    #send_message "$( eval_gettext "Unfortunately the original author of this awesome game (Florian Hufsky) is not with us anymore, so this beta version is not finished but at least works pretty well. If you are a programmer, and you want to revive this project, you can find it in our GitHub, and you can find some patches and bugfixes for it in their original community. We hope you enjoy this amazing game." )" "$id"
+    ## Important: In order to run this beta game, an admin password will be requested in order to add write permissions to the map files for the games group.
+#}
 #-------------------------------------------------------------------------------
 #   Message: Super Mario War Permissions
 #-------------------------------------------------------------------------------
@@ -132,9 +132,9 @@ case "$id" in
     ntfs_is_crap)
         message_ntfs_is_crap "$@"
         ;;
-    supermariowar)
-        message_supermariowar "$@"
-        ;;
+    #supermariowar)
+        #message_supermariowar "$@"
+        #;;
     supermariowarpermissions)
         message_supermariowarpermissions "$@"
         ;;
