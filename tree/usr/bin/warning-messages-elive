@@ -108,7 +108,7 @@ message_supermariowarpermissions(){
 #-------------------------------------------------------------------------------
 message_persistence_is_slow(){
     check_control "$id" || exit 0
-    send_message "$( eval_gettext "Due to layered file system writing, persistence requires a fast USB disk in order to not have a slow experience.Iif you want to enjoy this amazing feature make sure that you use a moderately fast USB device, like the SanDisk Ultra Flair." )" "$id"
+    send_message "$( eval_gettext "Due to layered file system writing, persistence requires a fast USB thumb drive in order to not have a slow experience. if you want to enjoy this amazing feature make sure that you use a moderately fast USB device, like the SanDisk Ultra Flair." )" "$id"
 }
 
 #-------------------------------------------------------------------------------
