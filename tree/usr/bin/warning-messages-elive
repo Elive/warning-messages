@@ -58,7 +58,7 @@ send_message(){
 message_ecomorph(){
     check_control "$id" || exit 0
 
-    send_message "$( eval_gettext "Warning: If you use this feature you can have different types of problems like lost, unclickable, or poorly positioned windows, instability in your desktop environment, slow videos, etc. This is an experimental feature. Please report any bugs you find." )" "$id"
+    send_message "$( eval_gettext "Warning: Using this feature may lead to issues such as lost or unclickable windows, poorly positioned windows, desktop instability, slow videos, etc. This is an experimental feature. Please report any bugs you encounter." )" "$id"
 }
 
 #-------------------------------------------------------------------------------
@@ -66,7 +66,7 @@ message_ecomorph(){
 #-------------------------------------------------------------------------------
 message_suspend(){
     check_control "$id" || exit 0
-    send_message "$( eval_gettext "Warning: Suspend and hibernate features may give you problems, like having blocked your computer. Use these features with caution! If your hardware doesn't support this feature, do not use it." )" "$id"
+    send_message "$( eval_gettext "Warning: Suspend and hibernate features may cause issues, such as locking up your computer. Use these features cautiously! Do not use them if your hardware does not support them." )" "$id"
 }
 
 #-------------------------------------------------------------------------------
@@ -76,7 +76,7 @@ message_compat_notinstalled(){
     check_control "$id" || exit 0
 
     local translated_message
-    translated_message="$( printf "$( eval_gettext "Note: You tried to run the application <b>%s</b>, but we will use an alternative one instead. This is not a bad thing, it makes your system more compatible and integrated. In fact, you don't need the original application at all, this message is only because we think that it is important for you to know this, in case you really wanted to use the other application specifically, you'll need to install it." )" "$@" )"
+    translated_message="$( printf "$( eval_gettext "Note: You tried to run the application <b>%s</b>, but we will use an alternative instead. This enhances compatibility and integration. You don't need the original application; this message is just to inform you, in case you specifically wanted to use the other application, you'll need to install it." )" "$@" )"
 
     send_message "$translated_message" "$id"
 }
@@ -85,7 +85,7 @@ message_compat_notinstalled(){
 #-------------------------------------------------------------------------------
 message_ntfs_is_crap(){
     check_control "$id" || exit 0
-    send_message "$( eval_gettext "Warning: You are using a partition that is formatted with the Microsoft NTFS file system. For a small use, it can work without problems, but if you want to continue using it for more important things you must know that it can be very unstable. It could totally freeze your computer or lose data. The reason for these problems is that Microsoft makes it difficult to be used with other operating systems like Linux or Mac in order to keep its monopolistic practices. This means that if you experience problems, Microsoft is at fault, not us, so do not report any issues related to this. Finally, as advice: If you want to have a stable file system to share data between different operating systems, we recommend using exFAT, it's stable and standard and works on any other operating system including Mac or the problematic Windows." )" "$id"
+    send_message "$( eval_gettext "Warning: You are using a partition formatted with the Microsoft NTFS file system. While it may work for small tasks, it can be highly unstable for more important uses, potentially freezing your computer or causing data loss. These issues arise because Microsoft makes it challenging for NTFS to work with other operating systems like Linux or Mac to maintain its monopolistic practices. If you encounter problems, they are due to Microsoft, not us, so do not report such issues. As advice, for a stable file system to share data across different operating systems, we recommend using exFAT, which is stable, standard, and compatible with all operating systems, including Mac and Windows." )" "$id"
 }
 #-------------------------------------------------------------------------------
 #   Message: Super Mario War
@@ -100,7 +100,7 @@ message_ntfs_is_crap(){
 #-------------------------------------------------------------------------------
 message_supermariowarpermissions(){
     check_control "$id" || exit 0
-    send_message "$( eval_gettext "Important: To be able to edit the levels of this game, we need to give write permissions for the games group on the game directory. If security is important to you or this computer is used by more than one person we don't recommend to do this." )" "$id"
+    send_message "$( eval_gettext "Important: To edit the levels of this game, write permissions for the games group on the game directory are required. We do not recommend this if security is a concern or if multiple people use this computer." )" "$id"
 }
 
 #-------------------------------------------------------------------------------
@@ -108,7 +108,7 @@ message_supermariowarpermissions(){
 #-------------------------------------------------------------------------------
 message_persistence_is_slow(){
     check_control "$id" || exit 0
-    send_message "$( eval_gettext "Due to layered file system writing, persistence requires a fast USB thumb drive in order to not have a slow experience. if you want to enjoy this amazing feature make sure that you use a moderately fast USB device, like the SanDisk Ultra Flair." )" "$id"
+    send_message "$( eval_gettext "Due to layered file system writing, persistence requires a fast USB thumb drive for a smooth experience. To enjoy this feature, ensure you use a moderately fast USB device, such as the SanDisk Ultra Flair." )" "$id"
 }
 
 #-------------------------------------------------------------------------------
